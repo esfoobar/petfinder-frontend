@@ -6,6 +6,7 @@ import Navbar from "./nav/components/Navbar"
 import Home from "./home/components/Home"
 import About from "./about/components/About"
 import Topics from "./topics/components/Topics"
+import Topic from "./topics/components/Topic"
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
+      <Route path="/topics/:topicId" component={Topic} />
 
     </div>
   </Router>
