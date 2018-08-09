@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  flex: 2;
+  flex-basis: auto;
 `;
 
 const NavbarContainer = styled.div`
@@ -21,7 +21,7 @@ const NavbarContainer = styled.div`
 `;
 
 const NavbarLink = styled(NavLink)`
-  flex: 1fr;
+  flex-basis: auto;
   text-align: center;
   font-family: sans-serif;
   font-size: 1em;
@@ -35,16 +35,16 @@ class Header extends React.Component {
     return(
       <Container>
         <LogoContainer>
-          <img src={ Logo } />
+          <img src={ Logo } width="130vw" />
         </LogoContainer>
         <NavbarContainer>
-          <NavbarLink to="/">
+          <NavbarLink className="nblink" to="/">
             Login
           </NavbarLink>
-          <NavbarLink to="/">
+          <NavbarLink className="nblink" to="/">
             Register
           </NavbarLink>
-          <NavbarLink to="/">
+          <NavbarLink className="nblink" to="/">
             Search for Pets
           </NavbarLink>
         </NavbarContainer>
