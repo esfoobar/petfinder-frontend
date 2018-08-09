@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Navbar from "./nav/components/Navbar"
+import Header from "./header/components/Header"
 import Home from "./home/components/Home"
 import About from "./about/components/About"
 import Topics from "./topics/components/Topics"
@@ -12,7 +12,7 @@ const App = () => (
   <Router>
     <div>
 
-      <Navbar />
+      <Header />
 
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
