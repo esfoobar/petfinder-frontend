@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderBG from '../images/headerbg.jpg';
+import HeaderBG from './images/headerbg.jpg';
 
 const HeroContainer = styled.div`
   background-image: url(${HeaderBG});

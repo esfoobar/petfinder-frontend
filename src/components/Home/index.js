@@ -1,11 +1,11 @@
 import React from 'react';
 import Hero from "./Hero"
-import LatestPetsComponent from "./LatestPetsComponent"
+import LatestPets from "./LatestPets"
 
 const Home = () => (
   <div>
     <Hero />
-    <LatestPetsComponent />
+    <LatestPets />
   </div>
 );
 

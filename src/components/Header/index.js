@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
-import Logo from '../images/pf-logo.png'
+import Logo from './images/pf-logo.png'
 
 const Container = styled.div`
   background-color: white;
@@ -45,6 +45,9 @@ const NavbarLink = styled(NavLink)`
     margin: 5px;
     background-color: #f8f8f8;
   }
+  &:hover {
+    color: #6099cc;
+  }
 `;
 
 class Header extends React.Component {
@@ -55,13 +58,13 @@ class Header extends React.Component {
           <img src={ Logo } width="130vw" />
         </LogoContainer>
         <NavbarContainer>
-          <NavbarLink className="nblink" to="/">
+          <NavbarLink to="/">
             Login
           </NavbarLink>
-          <NavbarLink className="nblink" to="/">
+          <NavbarLink to="/">
             Register
           </NavbarLink>
-          <NavbarLink className="nblink" to="/">
+          <NavbarLink to="/">
             Search for Pets
           </NavbarLink>
         </NavbarContainer>
