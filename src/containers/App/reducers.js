@@ -19,10 +19,11 @@ let Pet3Object = {
   petDescription: 'Daniella is very kind, and it loves to sing politically-wrong songs.'
 };
 
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
+import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants'
 
 const initialState = {
   articles: []
-};
-const rootReducer = (state = initialState, action) => state;
-export default rootReducer;
+}
+
+const rootReducer = (state = initialState, action) => state
+export default rootReducer
