@@ -4,11 +4,32 @@ import styled from 'styled-components';
 const PetContainer = styled.div`
   display: flex;
   width: 25vw;
-  height: 30vh;
-  background-color: lightgray;
+  height: auto;
+  border: solid 1px lightgray;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  padding: 5vh 0 5vh 0;
+  margin-bottom: 10vh;
+  flex: 1;
+`;
+
+const PetPhoto = styled.div`
+  flex-basis: 1;
+  align-items: center;
+`;
+
+const PetInfo = styled.div`
+  flex: 1;
+  padding: 2vh 5vw 2vh 5vw;
+`;
+
+const PetButton = styled.button`
+  background-color: #6099cc;
+  width: 15vw;
+  height: 5vh;
+  font-size: 1em;
+  color: white;
 `;
 
 class LatestPetItem extends React.Component {
@@ -16,21 +37,21 @@ class LatestPetItem extends React.Component {
     return(
       <div>
         <PetContainer>
-          <div className="photo">
-
-          </div>
-          <div className="petName">Peter</div>
-          <div className="petSpecies">Snake</div>
-          <div className="description">
+          <PetPhoto>
+            <img src={ this.props.petPhoto } />
+          </PetPhoto>
+          <PetInfo>
+            <h2>{ this.props.petName } / { this.props.petSpecies }</h2>
             <p>
-              Peter is very kind, and it loves to jump over the fences and get stuck.
+              { this.props.petDescription }
             </p>
-          </div>
-          <button>Adopt</button>
+          </PetInfo>
+          <PetButton>Adopt</PetButton>
         </PetContainer>
       </div>
     )
   }
 }
 
+LatestPetItem.defaultProps = {};
 export default LatestPetItem
