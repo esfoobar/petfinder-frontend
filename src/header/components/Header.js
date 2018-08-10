@@ -7,10 +7,15 @@ const Container = styled.div`
   background-color: white;
   display: flex;
   padding: 20px 30px 20px 30px;
+  justify-content: center;
+  @media (max-width:420px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const LogoContainer = styled.div`
-  flex-basis: auto;
+  width:150px;
 `;
 
 const NavbarContainer = styled.div`
@@ -18,6 +23,11 @@ const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @media (max-width: 420px) {
+    width:420px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const NavbarLink = styled(NavLink)`
@@ -28,6 +38,13 @@ const NavbarLink = styled(NavLink)`
   color: gray;
   text-decoration: none;
   margin-left: 20px;
+  @media (max-width:420px) {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin: 5px;
+    background-color: #f8f8f8;
+  }
 `;
 
 class Header extends React.Component {

@@ -3,20 +3,22 @@ import styled from 'styled-components';
 
 const PetContainer = styled.div`
   display: flex;
-  width: 25vw;
+  width: 320px;
   height: auto;
   border: solid 1px lightgray;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 5vh 0 5vh 0;
+  padding: 5vh 0 0 0;
   margin-bottom: 10vh;
-  flex: 1;
+  @media (max-width: 420px){
+    align-items: stretch;
+  }
 `;
 
 const PetPhoto = styled.div`
-  flex-basis: 1;
-  align-items: center;
+  flex-basis: 200px;
+  justify-content: center;
 `;
 
 const PetInfo = styled.div`
@@ -25,11 +27,17 @@ const PetInfo = styled.div`
 `;
 
 const PetButton = styled.button`
+  width: 200px;
+  flex-basis: 50px;
+  justify-content: flex-end;
   background-color: #6099cc;
-  width: 15vw;
-  height: 5vh;
   font-size: 1em;
   color: white;
+  margin-bottom: 40px;
+  @media (max-width: 420px){
+    width: auto;
+    margin-bottom: 0;
+  }
 `;
 
 class LatestPetItem extends React.Component {

@@ -33,7 +33,7 @@ const Title = styled.h2`
 `;
 const PetItemContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-left: 10vw;
