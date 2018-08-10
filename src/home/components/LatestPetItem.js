@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const PetContainer = styled.div`
   display: flex;
-  width: 25vw;
+  width: 300px;
   height: auto;
   border: solid 1px lightgray;
   align-items: center;

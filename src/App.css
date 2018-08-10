@@ -30,3 +30,13 @@
 .nblink:hover {
   color: #6099cc;
 }
+
+.heading h1 {
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 420px) {
+  .heading h1 {
+    font-size: 1.3em;
+  }
+}
