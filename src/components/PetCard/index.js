@@ -40,7 +40,7 @@ const PetButton = styled.button`
   }
 `;
 
-class LatestPetItem extends React.Component {
+class PetCard extends React.Component {
   render() {
     return(
       <div>
@@ -61,5 +61,5 @@ class LatestPetItem extends React.Component {
   }
 }
 
-LatestPetItem.defaultProps = {};
-export default LatestPetItem
+PetCard.defaultProps = {};
+export default PetCard
