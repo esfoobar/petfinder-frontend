@@ -16,29 +16,21 @@ const PetItemContainer = styled.div`
   padding-right: 10vw;
 `;
 
-class LatestPets extends React.Component {
-  render() {
-    const pet = {
-        petPhoto: '',
-        petName: 'Pancho',
-        petSpecies: 'Dog',
-        petDescription: 'Loco'
+const LatestPets = props => (
+  <div>
+    <Title>Latest Pets</Title>
+    <PetItemContainer>
+      {props.pets.map(pet => (
+        <PetCard
+          petPhoto={pet.photo}
+          petName={pet.name}
+          petSpecies={pet.species}
+          petDescription={pet.description}
+        />
+      ))
     }
-    return(
-      <div>
-        <Title>Latest Pets</Title>
-        <PetItemContainer>
-          <PetCard
-            petPhoto={pet.petPhoto}
-            petName={pet.petName}
-            petSpecies={pet.petSpecies}
-            petDescription={pet.petDescription}
-          />
-        </PetItemContainer>
-      </div>
-    )
-  }
-}
+    </PetItemContainer>
+  </div>
+)
 
-LatestPets.defaultProps = {};
 export default LatestPets

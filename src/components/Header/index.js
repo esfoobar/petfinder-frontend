@@ -50,27 +50,23 @@ const NavbarLink = styled(NavLink)`
   }
 `;
 
-class Header extends React.Component {
-  render() {
-    return(
-      <Container>
-        <LogoContainer>
-          <img src={ Logo } width="130vw" />
-        </LogoContainer>
-        <NavbarContainer>
-          <NavbarLink to="/">
-            Login
-          </NavbarLink>
-          <NavbarLink to="/">
-            Register
-          </NavbarLink>
-          <NavbarLink to="/">
-            Search for Pets
-          </NavbarLink>
-        </NavbarContainer>
-      </Container>
-    )
-  }
-}
+const Header = props => (
+  <Container>
+    <LogoContainer>
+      <img src={ Logo } width="130vw" />
+    </LogoContainer>
+    <NavbarContainer>
+      <NavbarLink to="/">
+        Login
+      </NavbarLink>
+      <NavbarLink to="/">
+        Register
+      </NavbarLink>
+      <NavbarLink to="/">
+        Search for Pets
+      </NavbarLink>
+    </NavbarContainer>
+  </Container>
+)
 
 export default Header

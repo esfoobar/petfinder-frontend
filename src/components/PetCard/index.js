@@ -40,26 +40,21 @@ const PetButton = styled.button`
   }
 `;
 
-class PetCard extends React.Component {
-  render() {
-    return(
-      <div>
-        <PetContainer>
-          <PetPhoto>
-            <img src={ this.props.petPhoto } />
-          </PetPhoto>
-          <PetInfo>
-            <h2>{ this.props.petName } / { this.props.petSpecies }</h2>
-            <p>
-              { this.props.petDescription }
-            </p>
-          </PetInfo>
-          <PetButton>Adopt</PetButton>
-        </PetContainer>
-      </div>
-    )
-  }
-}
+const PetCard = props => (
+  <div>
+    <PetContainer>
+      <PetPhoto>
+        <img src={ props.petPhoto } />
+      </PetPhoto>
+      <PetInfo>
+        <h2>{ props.petName } / { props.petSpecies }</h2>
+        <p>
+          { props.petDescription }
+        </p>
+      </PetInfo>
+      <PetButton>Adopt</PetButton>
+    </PetContainer>
+  </div>
+)
 
-PetCard.defaultProps = {};
 export default PetCard

@@ -28,25 +28,21 @@ const HeadingContainer = styled.div`
   }
 `;
 
-class Hero extends React.Component {
-  render() {
-    return(
-      <HeroContainer>
-        <HeadingContainer>
-          <div className="heading">
-            <h1>Give Them a Nice Home.</h1>
-          </div>
-          <div className="subheading">
-            <p>
-              Petfinder is an online, searchable database of animals who need homes.
-              It is also a directory of nearly 11,000 animal shelters and adoption
-              organizations across the U.S.
-            </p>
-          </div>
-        </HeadingContainer>
-      </HeroContainer>
-    )
-  }
-}
+const Hero = props => (
+  <HeroContainer>
+    <HeadingContainer>
+      <div className="heading">
+        <h1>Give Them a Nice Home.</h1>
+      </div>
+      <div className="subheading">
+        <p>
+          Petfinder is an online, searchable database of animals who need homes.
+          It is also a directory of nearly 11,000 animal shelters and adoption
+          organizations across the U.S.
+        </p>
+      </div>
+    </HeadingContainer>
+  </HeroContainer>
+)
 
 export default Hero
