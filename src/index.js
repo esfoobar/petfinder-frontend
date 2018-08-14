@@ -1,21 +1,21 @@
 import React from 'react';
-import { render } from 'react-dom';
-
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
-import configureStore from './configureStore';
+import ReactDOM from "react-dom";
 
 import './index.css';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
-// Create redux store with history
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
+import configureStore from './configureStore';
+
+import createHistory from 'history/createBrowserHistory';
+
 const initialState = {};
 const history = createHistory();
 const store = configureStore(initialState, history);
 
-render(
+ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <App />

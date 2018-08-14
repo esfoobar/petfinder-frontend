@@ -1,28 +1,22 @@
-/**
- * Create the store with dynamic reducers
- */
+import { createStore, applyMiddleware, compose } from "redux";
+import createSagaMiddleware from "redux-saga";
 
- import { createStore, applyMiddleware, compose } from "redux";
- import createSagaMiddleware from "redux-saga";
- import { Provider } from "react-redux";
-
- import { reducer } from "./redux";
- import { watcherSaga } from "./sagas";
-
-const sagaMiddleware = createSagaMiddleware();
+import { rootReducer } from "./containers/App/reducers";
+import { watcherSaga } from "./containers/App/sagas";
 
 export default function configureStore(initialState = {}, history) {
   // create the saga middleware
   const sagaMiddleware = createSagaMiddleware();
 
   // dev tools middleware
-  const reduxDevTools =
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+  // const reduxDevTools =
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
   // create a redux store with our reducer above and middleware
   let store = createStore(
-    reducer,
-    compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+    rootReducer,
+    // compose(applyMiddleware(sagaMiddleware), reduxDevTools)
+    compose(applyMiddleware(sagaMiddleware))
   );
 
   // run the saga

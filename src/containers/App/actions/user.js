@@ -1,9 +1,23 @@
-import { USER_LOGGED_IN } from '../constants';
+import { USER_LOGIN,
+  USER_LOGIN_SUCCESS,
+  USER_LOGIN_ERROR } from './constants';
 
-export function userLoggerIn() {
+export function userLogin() {
   return {
-    type: USER_LOGGED_IN,
-    email,
-    password
+    type: USER_LOGIN
+  };
+}
+
+export function userLoginSuccess(pets) {
+  return {
+    type: USER_LOGIN_SUCCESS,
+    userLogin
+  };
+}
+
+export function userLoginError(error) {
+  return {
+    type: USER_LOGIN_ERROR,
+    error
   };
 }

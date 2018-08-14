@@ -22,7 +22,7 @@ function latestPetsReducer(state = initialState, action) {
       return state
       .set('fetching', true)
       .set('error', false)
-      .set('pets', null)
+      .set('pets', action.pets)
     case GET_LATEST_PETS_ERROR:
     return state
     .set('fetching', true)

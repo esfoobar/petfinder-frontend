@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import userLoggedIn from './user'
-import getPets from './pets'
+import userLoginReducer from './user'
+import latestPetsReducer from './pets'
 
-export default combineReducers({
-  userLoggedIn,
-  getPets
+export const rootReducer = combineReducers({
+    userLoginReducer,
+    latestPetsReducer
 })
