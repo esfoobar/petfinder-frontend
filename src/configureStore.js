@@ -2,46 +2,31 @@
  * Create the store with dynamic reducers
  */
 
-import { createStore, applyMiddleware, compose } from 'redux'
-import { fromJS } from 'immutable'
-import { routerMiddleware } from 'react-router-redux'
-import createSagaMiddleware from 'redux-saga'
-import createReducer from './reducers'
+ import { createStore, applyMiddleware, compose } from "redux";
+ import createSagaMiddleware from "redux-saga";
+ import { Provider } from "react-redux";
+
+ import { reducer } from "./redux";
+ import { watcherSaga } from "./sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
 export default function configureStore(initialState = {}, history) {
-  // Create the store with two middlewares
-  // 1. sagaMiddleware: Makes redux-sagas work
-  // 2. routerMiddleware: Syncs the location/URL path to the state
-  const middlewares = [sagaMiddleware, routerMiddleware(history)];
+  // create the saga middleware
+  const sagaMiddleware = createSagaMiddleware();
 
-  const enhancers = [applyMiddleware(...middlewares)];
+  // dev tools middleware
+  const reduxDevTools =
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-  // If Redux DevTools Extension is installed use it, otherwise use Redux compose
-  /* eslint-disable no-underscore-dangle, indent */
-  const composeEnhancers =
-    process.env.NODE_ENV !== 'production' &&
-    typeof window === 'object' &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-      ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-          // TODO: Try to remove when `react-router-redux` is out of beta, LOCATION_CHANGE should not be fired more than once after hot reloading
-          // Prevent recomputing reducers for `replaceReducer`
-          shouldHotReload: false,
-        })
-      : compose;
-  /* eslint-enable */
-
-  const store = createStore(
-    createReducer(),
-    fromJS(initialState),
-    composeEnhancers(...enhancers),
+  // create a redux store with our reducer above and middleware
+  let store = createStore(
+    reducer,
+    compose(applyMiddleware(sagaMiddleware), reduxDevTools)
   );
 
-  // Extensions
-  store.runSaga = sagaMiddleware.run;
-  store.injectedReducers = {}; // Reducer registry
-  store.injectedSagas = {}; // Saga registry
+  // run the saga
+  sagaMiddleware.run(watcherSaga);
 
   return store;
 }

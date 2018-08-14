@@ -1,3 +1,5 @@
+// from https://hackernoon.com/redux-saga-tutorial-for-beginners-and-dog-lovers-aa69a17db645
+
 import { takeLatest, call, put } from "redux-saga/effects";
 import axios from "axios";
 
