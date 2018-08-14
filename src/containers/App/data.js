@@ -19,11 +19,4 @@ const pets = [
   }
 ]
 
-import { LOAD_REPOS } from './constants'
-
-const initialState = {
-  pets: pets
-};
-
-const rootReducer = (state = initialState, action) => state;
-export default rootReducer;
+export default pets
