@@ -14,20 +14,23 @@ const initialState = fromJS({
 function latestPetsReducer(state = initialState, action) {
   switch (action.type) {
     case GET_LATEST_PETS:
-      return state
+        console.log('GET_LATEST_PETS')
+        return state
         .set('fetching', true)
         .set('error', false)
         .set('pets', null)
     case GET_LATEST_PETS_SUCCESS:
-      return state
-      .set('fetching', true)
-      .set('error', false)
-      .set('pets', action.pets)
+        console.log('GET_LATEST_PETS_SUCCESS')
+        return state
+        .set('fetching', true)
+        .set('error', false)
+        .set('pets', action.pets)
     case GET_LATEST_PETS_ERROR:
-    return state
-    .set('fetching', true)
-    .set('error', action.error)
-    .set('pets', null)
+        console.log('GET_LATEST_PETS_ERROR')
+        return state
+        .set('fetching', true)
+        .set('error', action.error)
+        .set('pets', null)
     default:
       return state;
   }

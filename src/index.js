@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import configureStore from './configureStore';
 
-import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createBrowserHistory'
 
 const initialState = {};
 const history = createHistory();
