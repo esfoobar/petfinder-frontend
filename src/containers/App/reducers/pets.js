@@ -12,7 +12,7 @@ const initialState = fromJS({
 });
 
 function latestPetsReducer(state = initialState, action) {
-  switch (action.type) {
+    switch (action.type) {
     case GET_LATEST_PETS:
         console.log('GET_LATEST_PETS')
         return state

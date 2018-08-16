@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 
-import { rootReducer } from "./containers/App/reducers";
+import { appReducer } from "./containers/App/reducers";
 import { watcherSaga } from "./containers/App/sagas";
 
 export default function configureStore(initialState = {}, history) {
@@ -13,8 +13,8 @@ export default function configureStore(initialState = {}, history) {
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
   // create a redux store with our reducer above and middleware
-  let store = createStore(
-    rootReducer,
+  const store = createStore(
+    appReducer,
     // compose(applyMiddleware(sagaMiddleware), reduxDevTools)
     compose(applyMiddleware(sagaMiddleware))
   );
