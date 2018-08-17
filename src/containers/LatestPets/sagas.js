@@ -3,7 +3,7 @@ import request from '../../utils/request'
 
 import { GET_LATEST_PETS,
   GET_LATEST_PETS_SUCCESS,
-  GET_LATEST_PETS_ERROR } from './actions/constants'
+  GET_LATEST_PETS_ERROR } from './constants'
 
 // watcher saga: watches for actions dispatched to the store, starts worker saga
 export function* watcherSaga() {
@@ -13,7 +13,7 @@ export function* watcherSaga() {
 // worker saga: makes the api call when watcher saga sees the action
 function* workerSaga() {
   try {
-    const requestURL = `https://jsonplaceholder.typicode.com/posts`
+    const requestURL = `http://localhost:8080/pets`
     const response = yield call(request, requestURL)
     const pets = response
 

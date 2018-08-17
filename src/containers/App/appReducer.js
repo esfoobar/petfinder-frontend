@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import userLoginReducer from './user'
-import latestPetsReducer from './pets'
+import latestPetsReducer from '../LatestPets/reducers'
 
 export const appReducer = combineReducers({
-    userLoginReducer,
     latestPetsReducer
 })
