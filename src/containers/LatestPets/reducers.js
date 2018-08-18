@@ -22,7 +22,7 @@ function latestPetsReducer(state = initialState, action) {
     case GET_LATEST_PETS_SUCCESS:
         console.log('GET_LATEST_PETS_SUCCESS')
         return state
-        .set('fetching', true)
+        .set('fetching', false)
         .set('error', false)
         .set('pets', action.pets)
     case GET_LATEST_PETS_ERROR:
