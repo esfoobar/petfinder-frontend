@@ -30,7 +30,6 @@ class LatestPets extends React.Component {
 
   render () {
     console.log('rendering pet item container')
-    // debugger
     return (
       <div>
         <Title>Latest Pets</Title>
