@@ -5,13 +5,8 @@ import { GET_LATEST_PETS,
   GET_LATEST_PETS_SUCCESS,
   GET_LATEST_PETS_ERROR } from './constants'
 
-// watcher saga: watches for actions dispatched to the store, starts worker saga
-export function* watcherSaga() {
-  yield takeLatest(GET_LATEST_PETS, workerSaga)
-}
-
 // worker saga: makes the api call when watcher saga sees the action
-function* workerSaga() {
+function* getLatestPetsSaga() {
   try {
     const requestURL = `http://localhost:8080/pets`
     const response = yield call(request, requestURL)
@@ -25,3 +20,9 @@ function* workerSaga() {
     yield put({ type: GET_LATEST_PETS_ERROR, error })
   }
 }
+
+const LatestPetsSagas = [
+  takeLatest(GET_LATEST_PETS, getLatestPetsSaga),
+]
+
+export default LatestPetsSagas
