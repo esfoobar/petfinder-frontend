@@ -3,7 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { appReducer } from "./containers/App/appReducer";
-import { watcherSaga } from "./containers/LatestPets/sagas";
+import rootSaga from "./containers/App/rootSaga";
 
 export default function configureStore(initialState = {}, history) {
   // create the saga middleware
@@ -19,7 +19,7 @@ export default function configureStore(initialState = {}, history) {
   );
 
   // run the saga
-  sagaMiddleware.run(watcherSaga);
+  sagaMiddleware.run(rootSaga);
 
   return store;
 }
