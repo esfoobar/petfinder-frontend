@@ -52,7 +52,8 @@ class LatestPets extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    pets: state.latestPetsReducer.pets
+    pets: state.latestPetsReducer.pets,
+    error: state.latestPetsReducer.error
   };
 };
 

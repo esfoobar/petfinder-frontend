@@ -6,8 +6,7 @@ import { GET_LATEST_PETS,
 const initialState = {
   fetching: false,
   error: false,
-  pets: [],
-  getPet: []
+  pets: []
 };
 
 function latestPetsReducer(state = initialState, action) {
@@ -17,7 +16,7 @@ function latestPetsReducer(state = initialState, action) {
         return { ...state, fetching: true, error: false }
     case GET_LATEST_PETS_SUCCESS:
         console.log('GET_LATEST_PETS_SUCCESS')
-        return { ...state, fetching: true, error: false, pets: action.pets }
+        return { ...state, fetching: false, error: false, pets: action.pets }
     case GET_LATEST_PETS_ERROR:
         console.log('GET_LATEST_PETS_ERROR')
         return { ...state, fetching: false, error: action.error }
