@@ -1,4 +1,5 @@
 import 'whatwg-fetch'
+const baseUrl = process.env.REACT_APP_API_BASE_URL
 
 function parseJSON(response) {
   if (response.status === 204 || response.status === 205) {
@@ -18,7 +19,7 @@ function checkStatus(response) {
 }
 
 export default function request(url, options) {
-  return fetch(url, options)
+  return fetch(baseUrl + url, options)
     .then(checkStatus)
     .then(parseJSON)
 }
