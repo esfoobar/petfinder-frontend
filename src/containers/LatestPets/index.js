@@ -11,12 +11,13 @@ const Title = styled.h2`
 `;
 
 const PetItemContainer = styled.div`
+  width: 100%;
+
   display: flex;
+  flex: 1;
+  justify-content: center;
+  flex-flow: wrap;
   align-items: flex-start;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding-left: 10vw;
-  padding-right: 10vw;
 `;
 
 class LatestPets extends React.Component {

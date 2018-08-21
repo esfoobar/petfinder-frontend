@@ -1,47 +1,56 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderBG from './images/headerbg.jpg';
+import HeaderBG from './images/headerbg.png';
 
 const HeroContainer = styled.div`
+  height: 60vh;
   background-image: url(${HeaderBG});
-  display: flex;
-  height: 50vh;
+  background-position: 100% top;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 130vw;
-  background-position: left -15vw top -18vh;
+
+  display: flex;
   align-items: center;
-  @media (max-width:500px) {
-    background-size: auto;
-    background-position: 0;
-    height: auto;
+  flex: 1;
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    background-position: 50% top;
+  }
+  @media (min-width: 481px) and (max-width: 767px) {
+    background-image: none;
+    background-color: #edede7;
+    height: 30vh;
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    background-image: none;
+    background-color: #edede7;
+    height: 30vh;
   }
 `;
 
 const HeadingContainer = styled.div`
-  flex-basis: 35vw;
-  margin-left: 10vw;
-  @media (max-width:500px) {
+  padding: 10vw;
+  flex: 1;
+  @media (min-width: 481px) and (max-width: 767px) {
     text-align: center;
-    flex: 1;
-    margin: auto;
-    padding: 30px;
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    text-align: center;
   }
 `;
 
 const Hero = props => (
   <HeroContainer>
     <HeadingContainer>
-      <div className="heading">
-        <h1>Give Them a Nice Home.</h1>
-      </div>
-      <div className="subheading">
-        <p>
-          Petfinder is an online, searchable database of animals who need homes.
+      <h1>Give them a nice home.</h1>
+      <h3>
+        <span>Petfinder is an online, searchable database of animals who need homes.</span>
+        <span className="extendedContent">
           It is also a directory of nearly 11,000 animal shelters and adoption
           organizations across the U.S.
-        </p>
-      </div>
+        </span>
+      </h3>
     </HeadingContainer>
+    <div className="box"></div>
   </HeroContainer>
 )
 

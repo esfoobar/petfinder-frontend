@@ -2,51 +2,61 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import Logo from './images/pf-logo.png'
+import CollapsedMenu from './images/hamburger-menu.png'
 
 const Container = styled.div`
-  background-color: white;
   display: flex;
-  padding: 20px 30px 20px 30px;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 114px;
+  background-color: white;
+  padding: 0px 60px 0px 60px;
+  flex: 1;
   @media (max-width:420px) {
-    flex-direction: column;
-    align-items: center;
+
   }
 `;
 
 const LogoContainer = styled.div`
-  width:150px;
+  flex: 1;
 `;
 
 const NavbarContainer = styled.div`
-  flex: 1;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  @media (max-width: 420px) {
-    width:420px;
-    flex-direction: column;
-    align-items: center;
+  flex: 1;
+  @media (min-width: 481px) and (max-width: 767px) {
+    display: none;
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    display: none;
   }
 `;
 
 const NavbarLink = styled(NavLink)`
-  flex-basis: auto;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
   text-align: center;
-  font-family: sans-serif;
-  font-size: 1em;
-  color: gray;
+  color: #4a4a4a;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 73px;
   @media (max-width:420px) {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    margin: 5px;
-    background-color: #f8f8f8;
+
   }
   &:hover {
-    color: #6099cc;
+    color: #4a90e2;
+  }
+`;
+
+const CollapsedMenuContainer = styled.div`
+  display: none;
+  justify-content: flex-end;
+  flex: 1;
+  @media (min-width: 481px) and (max-width: 767px) {
+    display: flex;
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    display: flex;
   }
 `;
 
@@ -57,15 +67,18 @@ const Header = props => (
     </LogoContainer>
     <NavbarContainer>
       <NavbarLink to="/">
+        Search
+      </NavbarLink>
+      <NavbarLink to="/">
         Login
       </NavbarLink>
       <NavbarLink to="/">
         Register
       </NavbarLink>
-      <NavbarLink to="/">
-        Search for Pets
-      </NavbarLink>
     </NavbarContainer>
+    <CollapsedMenuContainer>
+      <img src={ CollapsedMenu } />
+    </CollapsedMenuContainer>
   </Container>
 )
 
