@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import Logo from './images/pf-logo.png'
-import CollapsedMenu from './images/hamburger-menu.png'
+import HamburgerIcon from './images/hamburger-menu.png'
 
 const Container = styled.div`
   display: flex;
@@ -50,8 +50,10 @@ const NavbarLink = styled(NavLink)`
 
 const CollapsedMenuContainer = styled.div`
   display: none;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
   flex: 1;
+
   @media (min-width: 481px) and (max-width: 767px) {
     display: flex;
   }
@@ -60,26 +62,75 @@ const CollapsedMenuContainer = styled.div`
   }
 `;
 
+const ClearButton = styled.button`
+    background: none;
+    width: auto;
+    height: auto;
+`;
+
+const CollapsedMenuIcon = styled.img`
+  width: 18px;
+  height: 13px;
+`;
+
+const CollapsedMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  position: absolute;
+  width: auto;
+  height: auto;
+  margin-right: 0px;
+  top: 80px;
+  padding: 30px 70px 30px 70px;
+  border: 1px solid lightgray;
+  z-index: 1;
+`;
+
+const CollapsedNavbarLink = styled(NavLink)`
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: #4a4a4a;
+  text-decoration: none;
+
+  flex: 1;
+
+  &:hover {
+    color: #4a90e2;
+  }
+`;
+
+const onClick = () => {
+  alert("hello")
+}
+
 const Header = props => (
-  <Container>
-    <LogoContainer>
-      <img src={ Logo } width="130vw" />
-    </LogoContainer>
-    <NavbarContainer>
-      <NavbarLink to="/">
-        Search
-      </NavbarLink>
-      <NavbarLink to="/">
-        Login
-      </NavbarLink>
-      <NavbarLink to="/">
-        Register
-      </NavbarLink>
-    </NavbarContainer>
-    <CollapsedMenuContainer>
-      <img src={ CollapsedMenu } />
-    </CollapsedMenuContainer>
-  </Container>
+  <div>
+    <Container>
+      <LogoContainer>
+        <img src={ Logo } width="130vw" />
+      </LogoContainer>
+      <NavbarContainer>
+        <NavbarLink to="/">Search</NavbarLink>
+        <NavbarLink to="/">Login</NavbarLink>
+        <NavbarLink to="/">Register</NavbarLink>
+      </NavbarContainer>
+      <CollapsedMenuContainer>
+        <CollapsedMenuIcon src={ HamburgerIcon } onClick={onClick} href="#" />
+        <CollapsedMenu>
+          <CollapsedNavbarLink to="/">Search</CollapsedNavbarLink>
+          <hr></hr>
+          <CollapsedNavbarLink to="/">Login</CollapsedNavbarLink>
+          <hr></hr>
+          <CollapsedNavbarLink to="/">Register</CollapsedNavbarLink>
+        </CollapsedMenu>
+      </CollapsedMenuContainer>
+    </Container>
+  </div>
 )
 
 export default Header
